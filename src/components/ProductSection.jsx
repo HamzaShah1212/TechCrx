@@ -8,7 +8,7 @@ export default function ProductSection({ addToCart }) {
     {
       id: 1,
       name: 'The Anti-Looter Kit',
-      price: '$99.99',
+      price: '$52.74',
       image: p1Image,
       description: 'Smart Home Defense System for Family Protection',
       affiliateLink: 'https://www.theantilooterkit.com/main/#aff=hamzashahsyed92916f'
@@ -16,7 +16,7 @@ export default function ProductSection({ addToCart }) {
     {
       id: 2,
       name: 'HydroLean XT Gold',
-      price: '$49.99',
+      price: '$86.73',
       image: '/p2.png',
       description: 'Advanced Hydration & Wellness Support',
       affiliateLink: 'https://hydroclean.com/hydroclean-xt-gold'
