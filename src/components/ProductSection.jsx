@@ -19,7 +19,7 @@ export default function ProductSection({ addToCart }) {
       price: '$86.73',
       image: '/p2.png',
       description: 'Advanced Hydration & Wellness Support',
-      affiliateLink: 'https://hydroclean.com/hydroclean-xt-gold'
+      affiliateLink: 'https://hydroleanxt.com/ds/go/indexvs.php#aff=hamzashahsyed92916f'
     },
     {
       id: 3,
