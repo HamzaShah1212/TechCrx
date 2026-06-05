@@ -20,6 +20,9 @@ export default function ProductCard({ product, addToCart }) {
           onLoad={() => setImageLoaded(true)}
           style={{ display: imageLoaded ? 'block' : 'none' }}
         />
+        {product.productNumber && (
+          <div className="product-number-badge">{product.productNumber}</div>
+        )}
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>

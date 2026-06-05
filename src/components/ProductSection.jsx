@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import ProductCard from './ProductCard'
 import p1Image from '../assets/p1.png'
-import p2Image from '../assets/p2.png'
 import './ProductSection.css'
 
 export default function ProductSection({ addToCart }) {
@@ -16,6 +15,14 @@ export default function ProductSection({ addToCart }) {
     },
     {
       id: 2,
+      name: 'HydroLean XT Gold',
+      price: '$49.99',
+      image: '/p2.png',
+      description: 'Advanced Hydration & Wellness Support',
+      affiliateLink: 'https://hydroclean.com/hydroclean-xt-gold'
+    },
+    {
+      id: 3,
       name: 'Wireless Headphones',
       price: '$79.99',
       image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -23,7 +30,7 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=wireless+headphones'
     },
     {
-      id: 3,
+      id: 4,
       name: 'USB-C Cable',
       price: '$12.99',
       image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -31,7 +38,7 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=usb-c+cable'
     },
     {
-      id: 4,
+      id: 5,
       name: 'Phone Stand',
       price: '$15.99',
       image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -39,7 +46,7 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=phone+stand'
     },
     {
-      id: 5,
+      id: 6,
       name: 'Portable Charger',
       price: '$34.99',
       image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -47,7 +54,7 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=portable+charger'
     },
     {
-      id: 6,
+      id: 7,
       name: 'Keyboard',
       price: '$49.99',
       image: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600',
@@ -55,7 +62,7 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=mechanical+keyboard'
     },
     {
-      id: 7,
+      id: 8,
       name: 'Mouse',
       price: '$29.99',
       image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -63,7 +70,7 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=wireless+mouse'
     },
     {
-      id: 8,
+      id: 9,
       name: 'Monitor Stand',
       price: '$39.99',
       image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -71,20 +78,12 @@ export default function ProductSection({ addToCart }) {
       affiliateLink: 'https://amazon.com/s?k=monitor+stand'
     },
     {
-      id: 9,
+      id: 10,
       name: 'Webcam',
       price: '$59.99',
       image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: '1080p HD webcam with built-in microphone',
       affiliateLink: 'https://amazon.com/s?k=hd+webcam'
-    },
-    {
-      id: 10,
-      name: 'HydroLean XT Gold',
-      price: '$49.99',
-      image: p2Image,
-      description: 'Advanced Hydration & Wellness Support',
-      affiliateLink: 'https://hydroclean.com/hydroclean-xt-gold'
     }
   ])
 
