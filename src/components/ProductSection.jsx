@@ -77,6 +77,14 @@ export default function ProductSection({ addToCart }) {
       image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: '1080p HD webcam with built-in microphone',
       affiliateLink: 'https://amazon.com/s?k=hd+webcam'
+    },
+    {
+      id: 10,
+      name: 'HydroLean XT Gold',
+      price: '$49.99',
+      image: p2Image,
+      description: 'Advanced Hydration & Wellness Support',
+      affiliateLink: 'https://hydroclean.com/hydroclean-xt-gold'
     }
   ])
 
