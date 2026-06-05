@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ProductCard from './ProductCard'
 import p1Image from '../assets/p1.png'
+import p2Image from '../assets/p2.png'
 import './ProductSection.css'
 
 export default function ProductSection({ addToCart }) {
