@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import ProductCard from './ProductCard'
 import p1Image from '../assets/p1.png'
 import './ProductSection.css'
@@ -87,6 +87,19 @@ export default function ProductSection({ addToCart }) {
     }
   ])
 
+  // Get URL parameters
+  const filteredProducts = useMemo(() => {
+    const params = new URLSearchParams(window.location.search)
+    const productId = params.get('product')
+    
+    if (productId) {
+      // Show only the specified product
+      return products.filter(p => p.id === parseInt(productId))
+    }
+    // Show all products if no parameter
+    return products
+  }, [products])
+
   return (
     <section id="products" className="products-section">
       <div className="products-container">
@@ -94,7 +107,7 @@ export default function ProductSection({ addToCart }) {
         <p className="section-subtitle">Discover our collection of premium tech products</p>
         
         <div className="products-grid">
-          {products.map(product => (
+          {filteredProducts.map(product => (
             <ProductCard 
               key={product.id} 
               product={product} 
