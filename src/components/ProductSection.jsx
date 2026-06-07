@@ -4,6 +4,9 @@ import p1Image from '../assets/p1.png'
 import './ProductSection.css'
 
 export default function ProductSection({ addToCart }) {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [minPrice, setMinPrice] = useState('')
+  const [maxPrice, setMaxPrice] = useState('')
   const [products] = useState([
     {
       id: 1,
@@ -92,13 +95,32 @@ export default function ProductSection({ addToCart }) {
     const params = new URLSearchParams(window.location.search)
     const productId = params.get('product')
     
+    let filtered = products
+    
+    // Filter by product ID if specified
     if (productId) {
-      // Show only the specified product
-      return products.filter(p => p.id === parseInt(productId))
+      filtered = filtered.filter(p => p.id === parseInt(productId))
     }
-    // Show all products if no parameter
-    return products
-  }, [products])
+    
+    // Filter by search term (name and description)
+    if (searchTerm.trim()) {
+      const term = searchTerm.toLowerCase()
+      filtered = filtered.filter(p => 
+        p.name.toLowerCase().includes(term) || 
+        p.description.toLowerCase().includes(term)
+      )
+    }
+    
+    // Filter by price range
+    filtered = filtered.filter(p => {
+      const price = parseFloat(p.price.replace('$', ''))
+      const min = minPrice ? parseFloat(minPrice) : 0
+      const max = maxPrice ? parseFloat(maxPrice) : Infinity
+      return price >= min && price <= max
+    })
+    
+    return filtered
+  }, [products, searchTerm, minPrice, maxPrice])
 
   return (
     <section id="products" className="products-section">
@@ -106,15 +128,69 @@ export default function ProductSection({ addToCart }) {
         <h2>Our Products</h2>
         <p className="section-subtitle">Discover our collection of premium tech products</p>
         
-        <div className="products-grid">
-          {filteredProducts.map(product => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              addToCart={addToCart}
+        {/* Search and Filter Section */}
+        <div className="search-filter-section">
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search by product name or description..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
             />
-          ))}
+          </div>
+          
+          <div className="price-filter-section">
+            <div className="price-input-group">
+              <input
+                type="number"
+                placeholder="Min Price"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+                className="price-input"
+              />
+              <span className="price-separator">-</span>
+              <input
+                type="number"
+                placeholder="Max Price"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+                className="price-input"
+              />
+            </div>
+            {(searchTerm || minPrice || maxPrice) && (
+              <button 
+                className="clear-filters-btn"
+                onClick={() => {
+                  setSearchTerm('')
+                  setMinPrice('')
+                  setMaxPrice('')
+                }}
+              >
+                Clear Filters
+              </button>
+            )}
+          </div>
         </div>
+
+        {filteredProducts.length === 0 ? (
+          <div className="no-results">
+            <p>No products found matching your search criteria.</p>
+          </div>
+        ) : (
+          <>
+            <p className="results-count">Showing {filteredProducts.length} product(s)</p>
+            <div className="products-grid">
+              {filteredProducts.map(product => (
+                <ProductCard 
+                  key={product.id} 
+                  product={product} 
+                  addToCart={addToCart}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   )
