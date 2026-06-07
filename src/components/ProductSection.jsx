@@ -23,11 +23,11 @@ export default function ProductSection({ addToCart }) {
     },
     {
       id: 3,
-      name: 'Wireless Headphones',
-      price: '$79.99',
-      image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'High-quality wireless headphones with noise cancellation',
-      affiliateLink: 'https://amazon.com/s?k=wireless+headphones'
+      name: 'The Premium Prompt Library for Smarter Affiliate Execution',
+      price: '$9.11',
+      image: '/pinterest_affiliate_pin.png',
+      description: 'The Premium Prompt Library for Smarter Affiliate Execution',
+      affiliateLink: '#'
     },
     {
       id: 4,
