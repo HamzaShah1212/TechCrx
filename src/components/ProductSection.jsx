@@ -27,7 +27,7 @@ export default function ProductSection({ addToCart }) {
       price: '$9.11',
       image: '/pinterest_affiliate_pin.png',
       description: 'The Premium Prompt Library for Smarter Affiliate Execution',
-      affiliateLink: '#'
+      affiliateLink: 'http://heikoboos.com/1000-prompts-for-affiliate-marketing#aff=hamzashahsyed92916f'
     },
     {
       id: 4,
