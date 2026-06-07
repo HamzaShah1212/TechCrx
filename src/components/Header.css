@@ -15,6 +15,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .logo h1 {
@@ -25,6 +27,33 @@
 .logo p {
   font-size: 0.9rem;
   opacity: 0.9;
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.search-input::placeholder {
+  color: #999;
 }
 
 .nav {
@@ -81,10 +110,20 @@
 @media (max-width: 768px) {
   .header-container {
     padding: 0 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .logo {
+    width: 100%;
   }
 
   .hamburger {
     display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 1.5rem;
   }
 
   .logo h1 {
@@ -95,9 +134,14 @@
     display: none;
   }
 
+  .search-bar {
+    min-width: 100%;
+    order: 3;
+  }
+
   .nav {
     position: absolute;
-    top: 70px;
+    top: 120px;
     left: 0;
     right: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -134,8 +178,16 @@
     font-size: 1.2rem;
   }
 
+  .search-bar {
+    min-width: 100%;
+  }
+
+  .search-input {
+    font-size: 16px;
+  }
+
   .nav {
-    top: 60px;
+    top: 140px;
     padding: 1.5rem;
   }
 

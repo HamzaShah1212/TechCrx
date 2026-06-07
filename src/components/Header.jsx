@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import './Header.css'
 
-export default function Header({ cartCount, onCartClick }) {
+export default function Header({ cartCount, onCartClick, onSearch }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value)
+    onSearch(e.target.value)
+  }
 
   return (
     <header className="header">
@@ -10,6 +16,16 @@ export default function Header({ cartCount, onCartClick }) {
         <div className="logo">
           <h1>🛍️ TechRx Store</h1>
           <p>Premium Tech Products</p>
+        </div>
+
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-input"
+          />
         </div>
 
         <button 
