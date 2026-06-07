@@ -17,6 +17,12 @@
   align-items: center;
 }
 
+.logo {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
 .logo h1 {
   font-size: 1.8rem;
   margin-bottom: 0.25rem;
@@ -58,6 +64,60 @@
 
 .cart-btn:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+.user-info {
+  color: white;
+  font-weight: 600;
+}
+
+.auth-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.auth-btn:hover {
+  background: white;
+  color: #667eea;
+}
+
+.login-btn {
+  border-color: white;
+}
+
+.signup-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+}
+
+.logout-btn {
+  background: rgba(255, 0, 0, 0.2);
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+.logout-btn:hover {
+  background: rgba(255, 0, 0, 0.4);
+  color: white;
+}
+
+.admin-link {
+  background: rgba(255, 215, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 215, 0, 0.5);
+}
+
+.admin-link:hover {
+  background: rgba(255, 215, 0, 0.4);
 }
 
 .hamburger {
@@ -110,13 +170,26 @@
   }
 
   .nav.active {
-    max-height: 300px;
+    max-height: 500px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
-  .nav a {
-    padding: 0.5rem 0;
+  .nav a,
+  .auth-btn {
+    padding: 0.5rem 0 !important;
     display: block;
+    border: none !important;
+    background: none !important;
+    text-align: left;
+  }
+
+  .auth-btn {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .auth-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
   }
 
   .cart-btn {
@@ -144,3 +217,4 @@
     height: 2.5px;
   }
 }
+

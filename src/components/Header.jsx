@@ -1,16 +1,26 @@
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import './Header.css'
 
 export default function Header({ cartCount, onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { user, logout, isAdmin } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    await logout()
+    navigate('/')
+    setMenuOpen(false)
+  }
 
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">
+        <Link to="/" className="logo">
           <h1>🛍️ TechRx Store</h1>
           <p>Premium Tech Products</p>
-        </div>
+        </Link>
 
         <button 
           className="hamburger"
@@ -22,9 +32,16 @@ export default function Header({ cartCount, onCartClick }) {
         </button>
 
         <nav className={`nav ${menuOpen ? 'active' : ''}`}>
-          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          
+          {isAdmin && (
+            <Link to="/admin" className="admin-link" onClick={() => setMenuOpen(false)}>
+              ⚙️ Admin
+            </Link>
+          )}
+
           <button 
             className="cart-btn"
             onClick={() => {
@@ -34,6 +51,35 @@ export default function Header({ cartCount, onCartClick }) {
           >
             🛒 Cart ({cartCount})
           </button>
+
+          {user ? (
+            <>
+              <span className="user-info">{user.name}</span>
+              <button 
+                className="auth-btn logout-btn"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link 
+                to="/login" 
+                className="auth-btn login-btn"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+              <Link 
+                to="/signup" 
+                className="auth-btn signup-btn"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </nav>
       </div>
     </header>
